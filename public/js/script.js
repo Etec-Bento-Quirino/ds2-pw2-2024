@@ -16,6 +16,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Função para criar um item da lista com botões de ação
     function createListItem(id,item) {
+        const checkbox = document.createElement('input');
+        checkbox.setAttribute('type','checkbox');
+        checkbox.setAttribute('class','comprado');
+        checkbox.setAttribute('id',id);
         const listItem = document.createElement('div');
         listItem.classList.add('item');
         const itemText = document.createElement('span');
@@ -23,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
         itemText.id = id;
         const deleteButton = createButton('Excluir', () => deleteItem(id));
         const updateButton = createButton('Atualizar', () => updateItem(id, prompt('Digite o novo nome do item:')));
-        listItem.append(itemText, deleteButton, updateButton);
+        listItem.append(checkbox,itemText, deleteButton, updateButton);
         return listItem;
     }
 
